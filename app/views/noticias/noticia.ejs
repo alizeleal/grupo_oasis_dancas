@@ -27,13 +27,16 @@
     <section style="width: 75%; height: 100%; background-color:chocolate ; font-family: 'Courier New', Courier, monospace;">
     <h1>Noticias</h1>
     <table>
-     <% for(let i=0; i<noticias.length; i++) {%>
+     
      <tr>
-         <td><h2><%= noticias[i].titulo %></h2></td></tr>
+         <td><h2><%= noticia[0].titulo %></h2></td></tr>
          <tr>
-         <td><h3><%= noticias[i].data_criacao %></h3></td>
+         <td><h3><%= noticia[0].data_criacao %></h3></td>
         </tr>
-        <% } %>
+        <tr>
+        <td><%= noticia[0].noticia %></td>
+        </tr>
+       
         <hr>
     </table>
     </section>
