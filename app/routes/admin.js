@@ -1,14 +1,17 @@
-module.exports= function(app){
+module.exports = function (app) {
+  app.get("/adm/incluirnoticia", function (req, res) {
+    res.render("adm/incluir");
+  });
 
-app.get('/adm/incluirnoticia', function(req, res){
-    res.render("adm/incluir")
+  app.post("/noticias/salvar", function (req, res) {
+    let noticia = req.body;
 
-});
+    let connection = app.config.dbConnection();
 
-app.post('/noticias/salvar', function(req, res){
-    let noticias =  req.body;
-    res.send(noticias)
+    let noticiasModel = app.app.models.noticiasModel;
 
-});
-
-}
+    noticiasModel.saveNoticia(noticia,connection, function (err, result) {
+      res.redirect("/noticias");
+    });
+  });
+};
